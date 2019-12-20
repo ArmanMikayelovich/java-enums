@@ -14,6 +14,18 @@ public class App
         for (Color color : Color.values()) {
             System.out.println(color + ": " + Arrays.toString(color.pickInRGB()));
         }
+        Color red = Color.RED;
+        Color otherRed = Color.RED;
+        System.out.println("Reference checking: " + (red == otherRed));
+        System.out.println("Ordinal checking: " + (red.ordinal() == otherRed.ordinal()));
+        System.out.println("valueOf checking: " + (Color.valueOf("RED") == Color.RED));
+        try {
+            System.out.println("valueOf checking: " + (Color.valueOf("TRANSPARENT") == Color.RED));
+        } catch (IllegalArgumentException ex) {
+            System.out.println("When we give to enum's valueOf method not available enum name, that throws:");
+            System.err.println(   "IllegalArgumentException: " + ex.getMessage());
+        }
+
     }
 }
 
